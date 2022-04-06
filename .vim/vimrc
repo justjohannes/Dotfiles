@@ -1,0 +1,48 @@
+"---------------------------------
+"Runtime path
+"---------------------------------
+
+let $RC=split(&runtimepath, ',')[0]
+let $RC="home/.vim/vimrc"
+
+"---------------------------------
+" General settings
+"---------------------------------
+
+filetype plugin indent on
+syntax on
+set backspace=indent,eol,start
+set hidden
+set noswapfile
+set nobackup
+set undodir=/home/hollypanda/.vim/undodir
+set undofile
+
+set relativenumber
+set nu
+set nocompatible
+set shiftwidth=4 tabstop=4 softtabstop=4 expandtab autoindent smartindent
+set nowrap
+set scrolloff=10
+
+set noerrorbells
+set hidden
+set noshowmode
+set incsearch
+set smartcase
+set ignorecase
+set signcolumn=yes
+
+"---------------------------------
+"Plugins
+"---------------------------------
+
+call plug#begin('/home/simplyhazel/.vim/plugged')
+
+source /home/simplyhazel/.vim/pluggins/colorscheme.vim
+source /home/simplyhazel/.vim/pluggins/lifeline.vim
+source /home/simplyhazel/.vim/pluggins/css-color.vim
+
+call plug#end()
+
+doautocmd User color       " To load the sourced colorshceme (must be after vim plugg)
