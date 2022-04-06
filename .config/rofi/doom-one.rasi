@@ -1,0 +1,93 @@
+* {
+  bg: #282c34;
+  bg-alt: #3e4451;
+
+  fg: #FFFFFF;
+  fg-alt: #787c99;
+
+  background-color: @bg;
+
+  
+black:       #1c1f24;
+red:         #ff6c6b;
+green:       #98be65;
+yellow:      #da8548;
+blue:        #51afef;
+magenta:     #c678dd;
+cyan:        #5699af;
+white:       #d0d0d0;  //## #d0d0d0 # #202328
+
+
+black-alt:   #5b6268;
+red-alt:     #da8548;
+green-alt:   #4db5bd;
+yellow-alt:  #ecbe7b;
+blue-alt:    #3071db;   //# This is 2257a0 in Doom Emacs but I lightened it.
+magenta-alt: #a9a1e1;
+cyan-alt:    #46d9ff;
+white-alt:   #dfdfdf;
+
+  
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 30%;
+}
+
+element {
+  padding: 8 0;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+  background-color: @magenta-alt;
+}
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 30;
+  border: 0 10;
+  background-color: inherit;
+}
+
+entry {
+  background-color: @bg;
+  padding: 12;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+listview {
+  padding: 8 12;
+  background-color: @bg;
+  columns: 1;
+  lines: 8;
+}
+
+mainbox {
+  background-color: @bg;
+  children: [inputbar, listview];
+}
+
+prompt {
+  background-color: #ecbe7b;
+  enabled: true;
+  padding: 12 12 0 12;
+  border: 0;
+  text-color: @fg;
+}
+
+/* 
