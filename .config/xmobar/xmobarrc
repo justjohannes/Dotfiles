@@ -1,0 +1,32 @@
+Config { overrideRedirect = False
+       , font     = "xft:mononoki nerd font mono:weight=bold:pixelsize=13:antialias=true:hinting=true"
+       , bgColor  = "#282c34"
+       , fgColor  = "#f8f8f2"
+       , iconRoot = ".config/xmonad/xpm/"  -- default: "."
+       , position = Static { xpos = 20 , ypos = 5, width = 1880, height = 25 }
+       , commands = [ Run Weather "EGPF"
+                        [ "--template", "<weather> <tempC>°C"
+                        , "-L", "0"
+                        , "-H", "25"
+                        ] 36000
+                    , Run Cpu 
+                        [ "-L", "3"
+                        , "-H", "50"
+                        , "--high"  , "red"
+                        , "--normal", "#E5C07B"
+                        ] 10
+                    , Run Alsa "default" "Master"
+                        [ "--template", "<volumestatus>"
+                        , "--suffix"  , "True"
+                        , "--"
+                        , "--on", ""
+                        ]
+                    , Run Memory ["--template", "Mem: <usedratio>%"] 60
+                    , Run Swap [] 60
+                    , Run Date "%a %Y-%m-%d %H:%M" "date" 60
+                    , Run XMonadLog
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "  <fc=#E06C75><icon=haskell_20.xpm/></fc> <box type=Bottom width=2 mb=2 color=#E06C75><fc=#E06C75>%XMonadLog%</fc></box> }{ <box type=Bottom width=2 mb=2 color=#98C379><fc=#98C379>Volume: %alsa:default:Master%</fc></box>  | <box type=Bottom width=2 mb=2 color=#E5C07B><fc=#E5C07B>%cpu%</fc></box> | <box type=Bottom width=2 mb=2 color=#61AFEF><fc=#61AFEF>%memory%</fc></box> | <box type=Bottom width=2 mb=2 color=#C678DD><fc=#C678DD>Weather: %EGPF%</fc></box>  | <box type=Bottom width=2 mb=2 color=#56B6C2><fc=#56B6C2>Date: %date%</fc></box>  "
+       }
