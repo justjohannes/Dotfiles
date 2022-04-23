@@ -1,15 +1,12 @@
-#-------------------------------------------------------
-#       General settings
-#-------------------------------------------------------
-
-HISTFILE=/home/simplyhazel/.config/zsh/.histfile
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
 zstyle :compinstall filename '/home/johannes/.zshrc'
 
-autoload -Uz compinit
-compinit
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
@@ -47,7 +44,7 @@ source "$ZDOTDIR/zsh-functions"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
-zsh_add_plugin "romkatv/powerlevel10k"
+zsh_add_plugin "romkatv/powerlevel10k" 
 #zsh_add_completion "esc/conda-zsh-completion" false
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
@@ -56,10 +53,7 @@ zsh_add_plugin "romkatv/powerlevel10k"
 #       Zsh prompt and color script
 #-------------------------------------------------------
 
-# zsh prompt
-source /home/simplyhazel/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 #-------------------------------------------------------
 #       Alias
@@ -74,9 +68,13 @@ alias ls='exa -ahl --icons'
 #Rofi scripts
 export PATH="$PATH:$HOME/.config/rofi/scripts"
 
+#Polybar scripts
+PATH="/home/johannes/.config/polybar/scripts:${PATH}"
+
 #JetBrains-toolbox path
 PATH="/home/johannes/.local/share/JetBrains/Toolbox:${PATH}" 
 
 #GOPATH 
-export PATH="$PATH:$HOME/go/bin"
-export GOPATH=$HOME/go
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
